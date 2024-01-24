@@ -171,7 +171,7 @@ The "Ethereum Candlestick Chart" above shows how the value of Ethereum changed f
 
 
 
-### Analyzing Unemployment Rate in USA over time (1948 - 2023)
+## Analyzing Unemployment Rate in USA over time (1948 - 2023)
 
 
 This section provides an interactive line chart showing the unemployment rate in the USA from the 1950s to the present.
