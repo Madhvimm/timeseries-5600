@@ -13,8 +13,6 @@ website:
         text: Introduction
       - href: data-sources.qmd
         text: Data Sources
-      - href: data-visualization.qmd
-        text: Data Visualization
       - href: exploratory-data-analysis.qmd
         text: Exploratory Data Analysis
       - href: univariate-ts-models.qmd
