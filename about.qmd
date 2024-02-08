@@ -2,4 +2,8 @@
 title: "About You"
 ---
 
-About this site
+Welcome to my portfolio! I'm a dedicated professional at the nexus of policy implementation, data analytics, and sustainable development, currently pursuing MS in Data Science and Public Policy at Georgetown University. My journey has taken me from the diverse landscapes of rural India to the analytical rigor of academia in the United States, driving forward the agenda of data-driven governance and policy effectiveness.
+
+With a diverse, I've harnessed the power of data to illuminate the path for decision-makers in government, think tanks, and NGOs. My toolkit, fortified by advanced analytics techniques and an array of industry-standard tools including Python, R, and Tableau, has been instrumental in crafting informed strategies that propel sustainable growth and impactful policy implementation.
+
+Join me as I explore the intersections of data analytics and policy implementation, where each insight serves as a stepping stone towards more equitable and efficient governance.

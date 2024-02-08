@@ -2,5 +2,10 @@
 title: "Introduction"
 ---
 
-Introduction
+**Deciphering Trends in Water Quality with Time Series Analysis**
 
+In this project, we're looking at how water quality has changed over time, focusing on harmful substances such as lead, arsenic, and nitrate. We're using data from the Environmental Protection Agency's (EPA) Six-Year Reviews to see how the amounts of these contaminants in drinking water have shifted. Understanding these changes is crucial for ensuring our water is safe and healthy.
+
+The EPA checks the rules for drinking water quality every six years to keep up with new scientific findings and technology. This process is important for making sure our drinking water stays safe. By examining this data, we want to see how effective current rules are at keeping contaminants at low levels and where we might need to improve.
+
+Our main goal is to look at the trends in how much lead, arsenic, and nitrate are in our water. This analysis helps us understand if our water is getting cleaner or if more work needs to be done to reduce these harmful substances. This project is about more than just numbers; it's about making sure our communities have access to clean and safe drinking water.

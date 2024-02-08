@@ -2,5 +2,13 @@
 title: "Data Sources"
 ---
 
-Data Sources
+For our exploration into water quality trends, we're utilizing invaluable data from the Environmental Protection Agency's (EPA) Six-Year Reviews. This dataset meticulously examines the safety and quality of drinking water across three distinct periods, known as SYR2, SYR3, and SYR4. These reviews represent the EPA's commitment to periodically reassess drinking water standards to ensure they reflect the latest in scientific research and technological advancements. A dedicated team of experts has rigorously verified this data for its accuracy and reliability, organizing it into categorized datasets that allow for a comprehensive analysis of water quality changes over time.
+
+The Six-Year Review 2 (SYR2), announced in March 2010, conducted a detailed examination of 71 national primary drinking water regulations (NPDWRs). It concluded that 67 of these regulations were appropriate, needing no revision, while four—acrylamide, epichlorohydrin, tetrachloroethylene, and trichloroethylene—were identified as candidates for regulatory revision. This review also acknowledged 14 other NPDWRs that were not subjected to a detailed review due to recent or ongoing regulatory actions, including significant concerns like disinfection byproducts and lead and copper.
+
+Following SYR2, the Six-Year Review 3 further scrutinized 76 NPDWRs, identifying eight—chlorite, Cryptosporidium, haloacetic acids, heterotrophic bacteria, Giardia lamblia, Legionella, total trihalomethanes, and viruses—as candidates for revision. This decision was based on new information regarding health effects, treatment technologies, and analytical methods, underscoring the dynamic nature of water quality regulation and the continuous need for adaptation to new scientific evidence.
+
+The data from these reviews is paramount to understanding how the presence of harmful substances in our drinking water has evolved, and how regulatory measures have influenced these trends. This project aims to delve into the trends of key contaminants, such as lead, arsenic, and nitrate, to assess improvements in water safety and identify areas requiring further attention.
+
+By integrating my academic knowledge with professional experience in policy implementation and sustainable development, this project embodies my commitment to leveraging data science for public good. It reflects a dedication to transparency, thorough analysis, and the dissemination of knowledge, pillars that support the advancement of data science and public policy. Through this analysis, we aspire to illuminate the complexities of water quality management and its implications for public health and policy, offering insights that can guide future regulatory strategies and technological interventions to ensure the safety of our drinking water.
 
