@@ -11,7 +11,7 @@
     "href": "introduction.html",
     "title": "Introduction",
     "section": "",
-    "text": "Introduction"
+    "text": "Deciphering Trends in Water Quality with Time Series Analysis\nIn this project, we’re looking at how water quality has changed over time, focusing on harmful substances such as lead, arsenic, and nitrate. We’re using data from the Environmental Protection Agency’s (EPA) Six-Year Reviews to see how the amounts of these contaminants in drinking water have shifted. Understanding these changes is crucial for ensuring our water is safe and healthy.\nThe EPA checks the rules for drinking water quality every six years to keep up with new scientific findings and technology. This process is important for making sure our drinking water stays safe. By examining this data, we want to see how effective current rules are at keeping contaminants at low levels and where we might need to improve.\nOur main goal is to look at the trends in how much lead, arsenic, and nitrate are in our water. This analysis helps us understand if our water is getting cleaner or if more work needs to be done to reduce these harmful substances. This project is about more than just numbers; it’s about making sure our communities have access to clean and safe drinking water."
   },
   {
     "objectID": "financial-ts-models.html",
@@ -46,7 +46,7 @@
     "href": "data-sources.html",
     "title": "Data Sources",
     "section": "",
-    "text": "Data Sources"
+    "text": "Data Sources\nIn our journey to uncover trends in water quality, we’re leveraging critical datasets from the Environmental Protection Agency’s (EPA) Six-Year Reviews. This comprehensive dataset examines the safety and quality of drinking water across three key periods—SYR2, SYR3, and SYR4—showcasing the EPA’s dedication to maintaining high drinking water standards through periodic reassessment based on the latest scientific research and technological advancements. A team of experts has rigorously quality-checked this data, ensuring its accuracy and reliability for in-depth analysis.\nPrimary Data Sources:\n\nEIDC Dataset: This broad dataset provides an overarching view of water quality data, serving as our analytical starting point. It encompasses a wide array of contaminants and offers insights into national water quality trends.\n\nhttps://redivis.com/EIDC/admin/datasets/cxcg-ahxafrqhj\n\nMicrobial and Disinfection Byproduct Data (2012-2019): Critical for understanding the outcomes of the Fourth Six-Year Review, this dataset provides insights into contaminants under the microbial and disinfection byproduct rules.\n\nhttps://www.epa.gov/dwsixyearreview/microbial-and-disinfection-byproduct-data-files-2012-2019-epas-fourth-six-year\n\nSix-Year Review 3 Compliance Monitoring Data (2006-2011): This dataset includes compliance monitoring data crucial for the third review, allowing for a detailed examination of water quality standards.\n\nhttps://www.epa.gov/dwsixyearreview/six-year-review-3-compliance-monitoring-data-2006-2011\n\nSix-Year Review 2 Contaminant Occurrence Data (1998-2005): Offering a historical perspective, this dataset from SYR2 provides a foundation for analyzing trends over time.\n\nhttps://www.epa.gov/dwsixyearreview/six-year-review-2-contaminant-occurrence-data-1998-2005\nEach dataset not only informs our understanding of historical and current water quality but also plays a crucial role in identifying areas for regulatory improvement and technological intervention. By integrating my academic knowledge with professional experience in policy implementation and sustainable development, this project aims to distill complex information into actionable insights, fostering public good through enhanced water quality management and policy development."
   },
   {
     "objectID": "multivariate-ts-models.html",
@@ -67,7 +67,7 @@
     "href": "about.html",
     "title": "About You",
     "section": "",
-    "text": "About this site"
+    "text": "Welcome to my portfolio! I’m a dedicated professional at the nexus of policy implementation, data analytics, and sustainable development, currently pursuing MS in Data Science and Public Policy at Georgetown University. My journey has taken me from the diverse landscapes of rural India to the analytical rigor of academia in the United States, driving forward the agenda of data-driven governance and policy effectiveness.\nWith a diverse, I’ve harnessed the power of data to illuminate the path for decision-makers in government, think tanks, and NGOs. My toolkit, fortified by advanced analytics techniques and an array of industry-standard tools including Python, R, and Tableau, has been instrumental in crafting informed strategies that propel sustainable growth and impactful policy implementation.\nJoin me as I explore the intersections of data analytics and policy implementation, where each insight serves as a stepping stone towards more equitable and efficient governance."
   },
   {
     "objectID": "conclusions.html",
