@@ -1,47 +1,5 @@
 [
   {
-    "objectID": "data-visualization.html",
-    "href": "data-visualization.html",
-    "title": "Time Series Data Visualization",
-    "section": "",
-    "text": "Importing Libraries\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(forecast)\nlibrary(astsa) \nlibrary(xts)\nlibrary(tseries)\nlibrary(fpp2)\nlibrary(fma)\nlibrary(lubridate)\nlibrary(tidyverse)\nlibrary(TSstudio)\nlibrary(quantmod)\nlibrary(tidyquant)\nlibrary(plotly)\nlibrary(ggplot2)\nlibrary(imputeTS)\nlibrary(gridExtra)\nlibrary(reticulate)\nlibrary(readxl)\n\n\n\nTime Series Data Visualization\n\n\nAverage Nitrate Levels\n# Create the ggplot\np &lt;- ggplot(new_yearly, aes(x = year, y = mean)) +\n  geom_point(color = 'black', size = 1) +  # Add the data points\n  geom_line(color = 'dodgerblue2', linewidth = 1) +   # Add the line with updated syntax\n  geom_smooth(method = 'lm', color = 'red', linetype = \"dashed\") + # Add a smooth line\n  scale_x_continuous(breaks = new_yearly$year) +  # Ensure all years are shown\n  theme_minimal() +  # Use a minimal theme\n  theme(\n    panel.grid.major = element_blank(),\n    panel.grid.minor = element_blank(),\n    plot.title = element_text(hjust = 0.5)  # Center align the title\n  ) +\n  labs(\n    title = 'Average Nitrate Levels in the Drinking Water in California',\n    x = 'Year',\n    y = 'Average Nitrate [mg/L]'\n  )\n\n# Convert ggplot to a plotly object for interactivity\np_plotly &lt;- ggplotly(p)\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nAverage Nitrate Levels\np_plotly\n\n\n\n\n\n\nThe yearly graph above shows the average nitrate levels in California’s drinking water from 1998 to 2011. The points represent annual average nitrate concentrations, the red dashed line, representing a linear regression model, has been added to indicate the overall trend within the observed period.\nThis helps us identify potential patterns, trends, or anomalies in nitrate levels over the years. Notably, it’s crucial to observe how these levels fluctuate and consider external factors that might influence these changes, such as environmental regulations or significant events affecting water quality.\n\n\nTableau Dashboard\n\nInteractive County-level Nitrate Level Map\nThe Tableau dashboard below is an interactive exploration of nitrate levels across various counties in California. This map helps in providing insights into regional disparities or areas of particular concern. There is time slider feature where you can see how nitrate levels in each county have evolved from 1998 to 2011."
-  },
-  {
-    "objectID": "other-ts-methods.html",
-    "href": "other-ts-methods.html",
-    "title": "Other: Interrupted TS/ARFIMA/ Spectral Analysis",
-    "section": "",
-    "text": "Other: Interrupted TS/ARFIMA/ Spectral Analysis"
-  },
-  {
-    "objectID": "conclusions.html",
-    "href": "conclusions.html",
-    "title": "Conclusions",
-    "section": "",
-    "text": "Conclusions"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About You",
-    "section": "",
-    "text": "Welcome to my portfolio! I’m a dedicated professional at the nexus of policy implementation, data analytics, and sustainable development, currently pursuing MS in Data Science and Public Policy at Georgetown University. My journey has taken me from the diverse landscapes of rural India to the analytical rigor of academia in the United States, driving forward the agenda of data-driven governance and policy effectiveness.\nWith a diverse, I’ve harnessed the power of data to illuminate the path for decision-makers in government, think tanks, and NGOs. My toolkit, fortified by advanced analytics techniques and an array of industry-standard tools including Python, R, and Tableau, has been instrumental in crafting informed strategies that propel sustainable growth and impactful policy implementation.\nJoin me as I explore the intersections of data analytics and policy implementation, where each insight serves as a stepping stone towards more equitable and efficient governance."
-  },
-  {
-    "objectID": "deep-learning-ts.html",
-    "href": "deep-learning-ts.html",
-    "title": "Deep Learning for TS",
-    "section": "",
-    "text": "Deep Learning for TS"
-  },
-  {
-    "objectID": "univariate-ts-models.html",
-    "href": "univariate-ts-models.html",
-    "title": "Univariate TS Models (ARIMA/SARIMA)",
-    "section": "",
-    "text": "Univariate TS Models (ARIMA/SARIMA)"
-  },
-  {
     "objectID": "data-sources.html",
     "href": "data-sources.html",
     "title": "Data Sources",
@@ -77,25 +35,11 @@
     "text": "EPA: For the purpose of this study, we would extract and analyze data for California and only for the level of Nitrates in drinking water; the focus is on California, as it is one of the biggest states in terms of sample collection frequency. The combination of both the SYR 2 and SY3 data will help provide a comprehensive narrative by helping us examine any trend or seasonality in the dataset and further explore any potential correlations with health outcomes or regulatory changes.\nCCR: Analysis will include a temporal correlation of nitrate levels from the EPA datasets with colorectal cancer incidence rates over the same periods.\nThe integration of colorectal cancer incidence data would enrich the study by enabling a multidimensional analysis of environmental determinants of health."
   },
   {
-    "objectID": "multivariate-ts-models.html",
-    "href": "multivariate-ts-models.html",
-    "title": "Multivariate TS Models (ARIMAX/SARIMAX/VAR)",
+    "objectID": "data-visualization.html",
+    "href": "data-visualization.html",
+    "title": "Time Series Data Visualization",
     "section": "",
-    "text": "Multivariate TS Models (ARIMAX/SARIMAX/VAR)"
-  },
-  {
-    "objectID": "exploratory-data-analysis.html",
-    "href": "exploratory-data-analysis.html",
-    "title": "Exploratory Data Analysis",
-    "section": "",
-    "text": "Exploratory Data Analysis"
-  },
-  {
-    "objectID": "financial-ts-models.html",
-    "href": "financial-ts-models.html",
-    "title": "Financial Time Series Models (ARCH/GARCH)",
-    "section": "",
-    "text": "Financial Time Series Models (ARCH/GARCH)"
+    "text": "Importing Libraries\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(forecast)\nlibrary(astsa) \nlibrary(xts)\nlibrary(tseries)\nlibrary(fpp2)\nlibrary(fma)\nlibrary(lubridate)\nlibrary(tidyverse)\nlibrary(TSstudio)\nlibrary(quantmod)\nlibrary(tidyquant)\nlibrary(plotly)\nlibrary(ggplot2)\nlibrary(imputeTS)\nlibrary(gridExtra)\nlibrary(reticulate)\nlibrary(readxl)\n\n\n\nTime Series Data Visualization\n\n\nAverage Nitrate Levels\n# Create the ggplot\np &lt;- ggplot(new_yearly, aes(x = year, y = mean)) +\n  geom_point(color = 'black', size = 1) +  # Add the data points\n  geom_line(color = 'dodgerblue2', linewidth = 1) +   # Add the line with updated syntax\n  geom_smooth(method = 'lm', color = 'red', linetype = \"dashed\") + # Add a smooth line\n  scale_x_continuous(breaks = new_yearly$year) +  # Ensure all years are shown\n  theme_minimal() +  # Use a minimal theme\n  theme(\n    panel.grid.major = element_blank(),\n    panel.grid.minor = element_blank(),\n    plot.title = element_text(hjust = 0.5)  # Center align the title\n  ) +\n  labs(\n    title = 'Average Nitrate Levels in the Drinking Water in California',\n    x = 'Year',\n    y = 'Average Nitrate [mg/L]'\n  )\n\n# Convert ggplot to a plotly object for interactivity\np_plotly &lt;- ggplotly(p)\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nAverage Nitrate Levels\np_plotly\n\n\n\n\n\n\nThe yearly graph above shows the average nitrate levels in California’s drinking water from 1998 to 2011. The points represent annual average nitrate concentrations, the red dashed line, representing a linear regression model, has been added to indicate the overall trend within the observed period.\nThis helps us identify potential patterns, trends, or anomalies in nitrate levels over the years. Notably, it’s crucial to observe how these levels fluctuate and consider external factors that might influence these changes, such as environmental regulations or significant events affecting water quality.\n\n\nTableau Dashboard\n\nInteractive County-level Nitrate Level Map\nThe Tableau dashboard below is an interactive exploration of nitrate levels across various counties in California. This map helps in providing insights into regional disparities or areas of particular concern. There is time slider feature where you can see how nitrate levels in each county have evolved from 1998 to 2011."
   },
   {
     "objectID": "introduction.html",
@@ -131,5 +75,68 @@
     "title": "Introduction",
     "section": "",
     "text": "[1] Knobeloch, L., Salna, B., Hogan, A., Postle, J., & Anderson, H. (2000). Blue babies and nitrate-contaminated well water. Environmental health perspectives, 108(7), 675–678. https://doi.org/10.1289/ehp.00108675\n[2] Balazs, C., Morello-Frosch, R., Hubbard, A., & Ray, I. (2011). Social disparities in nitrate-contaminated drinking water in California’s San Joaquin Valley. Environmental health perspectives, 119(9), 1272–1278. https://doi.org/10.1289/ehp.1002878\n[3] Mathewson, P. D., Evans, S., Byrnes, T., Joos, A., & Naidenko, O. V. (2020). Health and economic impact of nitrate pollution in drinking water: a Wisconsin case study. Environmental monitoring and assessment, 192(11), 724. https://doi.org/10.1007/s10661-020-08652-0\n[4] McDonald, Y. J., & Jones, N. E. (2018). Drinking Water Violations and Environmental Justice in the United States, 2011-2015. American journal of public health, 108(10), 1401–1407. https://doi.org/10.2105/AJPH.2018.304621"
+  },
+  {
+    "objectID": "financial-ts-models.html",
+    "href": "financial-ts-models.html",
+    "title": "Financial Time Series Models (ARCH/GARCH)",
+    "section": "",
+    "text": "Financial Time Series Models (ARCH/GARCH)"
+  },
+  {
+    "objectID": "exploratory-data-analysis.html",
+    "href": "exploratory-data-analysis.html",
+    "title": "Exploratory Data Analysis",
+    "section": "",
+    "text": "Below we have a scatter plot showcasing the relationship between the normalized nitrate levels in California’s drinking water and the corresponding rates of colorectal cancer across various counties.\n\n\nAverage Nitrate Levels\nggplot(data, aes(x = normalized_nitrate, y = normalized_cancer_rate)) +\n  geom_point(aes(color = county_served), alpha = 0.6) +  # Using alpha for better visibility if points overlap\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") +  # Adding a linear trend line\n  theme_minimal() +\n  labs(\n    title = \"Normalized Nitrate Levels vs. Normalized Colorectal Cancer Rates\",\n    x = \"Normalized Nitrate Levels\",\n    y = \"Normalized Colorectal Cancer Rates\"\n  ) +\n  theme(legend.position = \"none\")  # Hiding the legend for clarity; remove if county-wise color coding is essential\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 36 rows containing non-finite values (`stat_smooth()`).\n\n\nWarning: Removed 36 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\nThe scatter plot illustrates a positive correlation between the normalized levels of nitrates in drinking water and the incidence rates of colo-rectal cancer across various counties in California. Most data points cluster around the center, indicating that numerous counties exhibit a moderate presence of both nitrates in drinking water and the colorectal cancer cases. The upward trend line woven signals that higher nitrate concentrations might be linked with increased cancer rates, and this requires further exploration. While the pattern suggests a potential environmental-health linkage, it’s a stepping stone that requires further analytical exploration.\n\n\nAverage Nitrate Levels\n# Time Series Plot\np &lt;- ggplot(monthly_df, aes(x = date, y = average_result_value)) +\n  geom_line() +\n  scale_x_date(date_breaks = \"1 year\", date_labels = \"%Y\") +  # Display only years on the x-axis\n  labs(title = \"Monthly Nitrate Levels for PWS ID: CA1910067\",\n       x = \"Time\",\n       y = \"Average Nitrate Level (mg/L)\")\n\nggplotly(p)\n\n\n\n\n\n\n\n\n\n\n\nAverage Nitrate Levels\n# Time Series Plot of the log-transformed data\np_log &lt;- ggplot(monthly_df, aes(x = date, y = log_average_result_value)) +\n  geom_line() +\n  scale_x_date(date_breaks = \"1 year\", date_labels = \"%Y\") + \n  labs(title = \"Log of Monthly Nitrate Levels for PWS ID: CA1910067\",\n       x = \"Time\",\n       y = \"Log of Average Nitrate Level (mg/L)\")\n\nggplotly(p_log)\n\n\n\n\n\n\n\n\n\nLag plot is a visual representation of the nitrate levels for each month, to identify any patterns or relationships in the data over time. Each panel represents a different lag, meaning the number of months between the points in the series. The plot shows data from a public water system (PWS) with the ID CA1910067.\n\n\nAverage Nitrate Levels\n# Create the lag plot for nitrate time series data\nlag_plot_nitrate &lt;- gglagplot(nitrate_ts, do.lines = FALSE) +\n  xlab(\"Lags\") +\n  ylab(\"Log-transformed Nitrate Levels\") +\n  ggtitle(\"Lag Plot for Monthly Nitrate Levels for PWS ID: CA1910067\") +\n  theme_bw()\n\n# Convert to a plotly object for interactivity\nggplotly(lag_plot_nitrate)\n\n\n\n\n\n\nWe can observe clusters of similarly colored points at lag 1 do indicate some level of autocorrelation in the nitrate levels. This means that the nitrate level from the previous month has some degree of influence on the current month’s level. For time series modeling, such as ARIMA (Autoregressive Integrated Moving Average), this suggests that an autoregressive term would indeed be significant, meaning that the model would use previous data points to predict future ones.\nThe fact that this autocorrelation weakens at higher lags, implies that older data points have less predictive power. This would be important when determining the order of the AR term in an ARIMA model; a smaller order may be sufficient, as incorporating too many past values might not improve the model. The presence of seasonality, suggested by the clustering of the same months’ colors, might also imply that a seasonal component should be considered in the modeling process, which could lead to the use of a Seasonal ARIMA (SARIMA) model.\n\n\n\n\n\nAverage Nitrate Levels\n# Decomposition using a multiplicative model\nmultiplicative_decomp &lt;- decompose(log_nitrate_ts, type = 'multiplicative')\nplot(multiplicative_decomp)\n\n\n\n\n\n\n\n\n\nSeasonal: The seasonal component reveals a clear, consistent pattern that repeats annually. This suggests that there are predictable fluctuations in nitrate levels that correspond to the time of year, which could be associated with agricultural cycles, weather patterns, or other seasonal factors.\nThere seems to be some volatility, suggesting that there might be other factors or perhaps outliers influencing nitrate levels that are not captured by the seasonal or trend components."
+  },
+  {
+    "objectID": "exploratory-data-analysis.html#exploratory-data-analysis",
+    "href": "exploratory-data-analysis.html#exploratory-data-analysis",
+    "title": "Exploratory Data Analysis",
+    "section": "",
+    "text": "Below we have a scatter plot showcasing the relationship between the normalized nitrate levels in California’s drinking water and the corresponding rates of colorectal cancer across various counties.\n\n\nAverage Nitrate Levels\nggplot(data, aes(x = normalized_nitrate, y = normalized_cancer_rate)) +\n  geom_point(aes(color = county_served), alpha = 0.6) +  # Using alpha for better visibility if points overlap\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") +  # Adding a linear trend line\n  theme_minimal() +\n  labs(\n    title = \"Normalized Nitrate Levels vs. Normalized Colorectal Cancer Rates\",\n    x = \"Normalized Nitrate Levels\",\n    y = \"Normalized Colorectal Cancer Rates\"\n  ) +\n  theme(legend.position = \"none\")  # Hiding the legend for clarity; remove if county-wise color coding is essential\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 36 rows containing non-finite values (`stat_smooth()`).\n\n\nWarning: Removed 36 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\nThe scatter plot illustrates a positive correlation between the normalized levels of nitrates in drinking water and the incidence rates of colo-rectal cancer across various counties in California. Most data points cluster around the center, indicating that numerous counties exhibit a moderate presence of both nitrates in drinking water and the colorectal cancer cases. The upward trend line woven signals that higher nitrate concentrations might be linked with increased cancer rates, and this requires further exploration. While the pattern suggests a potential environmental-health linkage, it’s a stepping stone that requires further analytical exploration.\n\n\nAverage Nitrate Levels\n# Time Series Plot\np &lt;- ggplot(monthly_df, aes(x = date, y = average_result_value)) +\n  geom_line() +\n  scale_x_date(date_breaks = \"1 year\", date_labels = \"%Y\") +  # Display only years on the x-axis\n  labs(title = \"Monthly Nitrate Levels for PWS ID: CA1910067\",\n       x = \"Time\",\n       y = \"Average Nitrate Level (mg/L)\")\n\nggplotly(p)\n\n\n\n\n\n\n\n\n\n\n\nAverage Nitrate Levels\n# Time Series Plot of the log-transformed data\np_log &lt;- ggplot(monthly_df, aes(x = date, y = log_average_result_value)) +\n  geom_line() +\n  scale_x_date(date_breaks = \"1 year\", date_labels = \"%Y\") + \n  labs(title = \"Log of Monthly Nitrate Levels for PWS ID: CA1910067\",\n       x = \"Time\",\n       y = \"Log of Average Nitrate Level (mg/L)\")\n\nggplotly(p_log)\n\n\n\n\n\n\n\n\n\nLag plot is a visual representation of the nitrate levels for each month, to identify any patterns or relationships in the data over time. Each panel represents a different lag, meaning the number of months between the points in the series. The plot shows data from a public water system (PWS) with the ID CA1910067.\n\n\nAverage Nitrate Levels\n# Create the lag plot for nitrate time series data\nlag_plot_nitrate &lt;- gglagplot(nitrate_ts, do.lines = FALSE) +\n  xlab(\"Lags\") +\n  ylab(\"Log-transformed Nitrate Levels\") +\n  ggtitle(\"Lag Plot for Monthly Nitrate Levels for PWS ID: CA1910067\") +\n  theme_bw()\n\n# Convert to a plotly object for interactivity\nggplotly(lag_plot_nitrate)\n\n\n\n\n\n\nWe can observe clusters of similarly colored points at lag 1 do indicate some level of autocorrelation in the nitrate levels. This means that the nitrate level from the previous month has some degree of influence on the current month’s level. For time series modeling, such as ARIMA (Autoregressive Integrated Moving Average), this suggests that an autoregressive term would indeed be significant, meaning that the model would use previous data points to predict future ones.\nThe fact that this autocorrelation weakens at higher lags, implies that older data points have less predictive power. This would be important when determining the order of the AR term in an ARIMA model; a smaller order may be sufficient, as incorporating too many past values might not improve the model. The presence of seasonality, suggested by the clustering of the same months’ colors, might also imply that a seasonal component should be considered in the modeling process, which could lead to the use of a Seasonal ARIMA (SARIMA) model.\n\n\n\n\n\nAverage Nitrate Levels\n# Decomposition using a multiplicative model\nmultiplicative_decomp &lt;- decompose(log_nitrate_ts, type = 'multiplicative')\nplot(multiplicative_decomp)\n\n\n\n\n\n\n\n\n\nSeasonal: The seasonal component reveals a clear, consistent pattern that repeats annually. This suggests that there are predictable fluctuations in nitrate levels that correspond to the time of year, which could be associated with agricultural cycles, weather patterns, or other seasonal factors.\nThere seems to be some volatility, suggesting that there might be other factors or perhaps outliers influencing nitrate levels that are not captured by the seasonal or trend components."
+  },
+  {
+    "objectID": "multivariate-ts-models.html",
+    "href": "multivariate-ts-models.html",
+    "title": "Multivariate TS Models (ARIMAX/SARIMAX/VAR)",
+    "section": "",
+    "text": "Multivariate TS Models (ARIMAX/SARIMAX/VAR)"
+  },
+  {
+    "objectID": "univariate-ts-models.html",
+    "href": "univariate-ts-models.html",
+    "title": "Univariate TS Models (ARIMA/SARIMA)",
+    "section": "",
+    "text": "Univariate TS Models (ARIMA/SARIMA)"
+  },
+  {
+    "objectID": "deep-learning-ts.html",
+    "href": "deep-learning-ts.html",
+    "title": "Deep Learning for TS",
+    "section": "",
+    "text": "Deep Learning for TS"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About You",
+    "section": "",
+    "text": "Welcome to my portfolio! I’m a dedicated professional at the nexus of policy implementation, data analytics, and sustainable development, currently pursuing MS in Data Science and Public Policy at Georgetown University. My journey has taken me from the diverse landscapes of rural India to the analytical rigor of academia in the United States, driving forward the agenda of data-driven governance and policy effectiveness.\nWith a diverse, I’ve harnessed the power of data to illuminate the path for decision-makers in government, think tanks, and NGOs. My toolkit, fortified by advanced analytics techniques and an array of industry-standard tools including Python, R, and Tableau, has been instrumental in crafting informed strategies that propel sustainable growth and impactful policy implementation.\nJoin me as I explore the intersections of data analytics and policy implementation, where each insight serves as a stepping stone towards more equitable and efficient governance."
+  },
+  {
+    "objectID": "conclusions.html",
+    "href": "conclusions.html",
+    "title": "Conclusions",
+    "section": "",
+    "text": "Conclusions"
+  },
+  {
+    "objectID": "other-ts-methods.html",
+    "href": "other-ts-methods.html",
+    "title": "Other: Interrupted TS/ARFIMA/ Spectral Analysis",
+    "section": "",
+    "text": "Other: Interrupted TS/ARFIMA/ Spectral Analysis"
   }
 ]
