@@ -81,6 +81,7 @@ This helps us identify potential patterns, trends, or anomalies in nitrate level
 The Tableau dashboard below is an interactive exploration of nitrate levels across various counties in California. This map helps in providing insights into regional disparities or areas of particular concern. There is time slider feature where you can see how nitrate levels in each county have evolved from 1998 to 2011.
 
 
-LINK
+<iframe src="https://public.tableau.com/views/california_17104055601850/Dashboard1?:embed=y&:display_count=yes&:showVizHome=no" width="100%" height="1200"></iframe>
+
 
 

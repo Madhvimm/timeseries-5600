@@ -9,6 +9,7 @@ title: "Introduction"
 
 The statement highlights the role clean water has in our existence, our well-being, and the world around us. Yet, it is under constant scrutiny as factors of modern living threaten its sanctity. My connection with water goes beyond necessity; it’s a relationship forged through curiosity, concern, and a deep-seated respect for nature’s intricate balance. In this project, we delve into California’s drinking water quality from 1998 to 2011, focusing on the nitrate levels in the drinking water. California’s juxtaposition of natural beauty and industrial advancement presents a complex narrative of water quality. Through the lens of time series analysis, I aspire to decode the patterns, understand the impacts, and anticipate the future of water quality in California.
 
+
 ## **Bigger Picture**
 
 Before we dive into the intricate details, it is essential to understand the broader landscape. To understand what’s happening with nitrate levels in California’s drinking water, we need to zoom out and look at the whole picture. We’ll explore data to answer some key questions. How have these nitrate levels shifted from 1998 to 2011? What patterns emerge with the changing seasons, and how might these be tied to maybe some agricultural practices or city life? Do the rules and regulations set by the government make a noticeable dent in these levels? Do these levels have any impact on our health?
