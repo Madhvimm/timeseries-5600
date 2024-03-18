@@ -2,5 +2,204 @@
 title: "Exploratory Data Analysis"
 ---
 
-Exploratory Data Analysis
+## Exploratory Data Analysis
+
+
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+#| code-fold: true
+#| code-summary: 'Importing Libraries'
+#| warning: false
+#| output: false
+library(ggplot2)
+library(readr)
+library(tidyverse)
+library(lubridate)
+library(forecast)
+library(tseries)
+library(plotly)
+
+
+```
+
+#### Scatter Plot  
+
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+#| code-fold: true
+#| code-summary: 'Importing Libraries'
+#| warning: false
+#| output: false
+# Load the data
+data <- read_csv("county_year_combined.csv",show_col_types = FALSE)
+
+#Normalize the cancer rates
+
+data$normalized_cancer_rate <- (data$`Colorectal Rate per 100,000` - min(data$`Colorectal Rate per 100,000`, na.rm = TRUE)) / 
+                              (max(data$`Colorectal Rate per 100,000`, na.rm = TRUE) - min(data$`Colorectal Rate per 100,000`, na.rm = TRUE))
+
+# Normalizing nitrate levels
+data$normalized_nitrate <- (data$average_result_value - min(data$average_result_value, na.rm = TRUE)) / 
+                           (max(data$average_result_value, na.rm = TRUE) - min(data$average_result_value, na.rm = TRUE))
+
+```
+
+
+Below we have a scatter plot showcasing the relationship between the normalized nitrate levels in California's drinking water and the corresponding rates of colorectal cancer across various counties. 
+
+
+
+```{r, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: 'Average Nitrate Levels'
+#| warning: false
+#| output: true
+ggplot(data, aes(x = normalized_nitrate, y = normalized_cancer_rate)) +
+  geom_point(aes(color = county_served), alpha = 0.6) +  # Using alpha for better visibility if points overlap
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +  # Adding a linear trend line
+  theme_minimal() +
+  labs(
+    title = "Normalized Nitrate Levels vs. Normalized Colorectal Cancer Rates",
+    x = "Normalized Nitrate Levels",
+    y = "Normalized Colorectal Cancer Rates"
+  ) +
+  theme(legend.position = "none")  # Hiding the legend for clarity; remove if county-wise color coding is essential
+```
+
+
+The scatter plot illustrates a  positive correlation between the normalized levels of nitrates in drinking water and the incidence rates of colo-rectal cancer across various counties in California. Most data points cluster around the center, indicating that numerous counties exhibit a moderate presence of both nitrates in drinking water and the colorectal cancer cases. The upward trend line woven signals that higher nitrate concentrations might be linked with increased cancer rates, and this requires further exploration. While the pattern suggests a potential environmental-health linkage, it's a stepping stone that requires further analytical exploration.
+
+
+
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+#| code-fold: true
+#| code-summary: 'Importing Libraries'
+#| warning: false
+#| output: false
+#| 
+# Read the data
+monthly_df <- read_csv("monthly_df.csv")
+
+# Preprocessing
+monthly_df <- monthly_df %>%
+  filter(pws_id == 'CA1910067') %>%
+  arrange(year, month) %>%
+  mutate(date = as.Date(paste(year, month, "01", sep = "-")))
+
+
+# Convert the data to a time series object for the specific PWS
+nitrate_ts <- ts(monthly_df$average_result_value, start = c(min(monthly_df$year), min(monthly_df$month)), frequency = 12)
+
+```
+
+
+
+```{r, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: 'Average Nitrate Levels'
+#| warning: false
+# Time Series Plot
+p <- ggplot(monthly_df, aes(x = date, y = average_result_value)) +
+  geom_line() +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +  # Display only years on the x-axis
+  labs(title = "Monthly Nitrate Levels for PWS ID: CA1910067",
+       x = "Time",
+       y = "Average Nitrate Level (mg/L)")
+
+ggplotly(p)
+```
+
+
+
+#### Log Transformation
+
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+#| code-fold: true
+#| code-summary: 'Importing Libraries'
+#| warning: false
+#| output: false
+#| 
+# Apply log transformation to stabilize variance
+monthly_df$log_average_result_value <- log(monthly_df$average_result_value + 1) # +1 to avoid log(0)
+
+
+# Convert the log-transformed data to a time series object
+log_nitrate_ts <- ts(monthly_df$log_average_result_value, start = c(min(monthly_df$year), min(monthly_df$month)), frequency = 12)
+
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: 'Average Nitrate Levels'
+#| warning: false
+# Time Series Plot of the log-transformed data
+p_log <- ggplot(monthly_df, aes(x = date, y = log_average_result_value)) +
+  geom_line() +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") + 
+  labs(title = "Log of Monthly Nitrate Levels for PWS ID: CA1910067",
+       x = "Time",
+       y = "Log of Average Nitrate Level (mg/L)")
+
+ggplotly(p_log)
+
+```
+
+
+
+
+
+#### Lag Plots
+
+
+Lag plot is a visual representation of the nitrate levels for each month, to identify any patterns or relationships in the data over time. Each panel represents a different lag, meaning the number of months between the points in the series. The plot shows data from a public water system (PWS) with the ID CA1910067.
+
+
+```{r, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: 'Average Nitrate Levels'
+#| warning: false
+#|  
+# Create the lag plot for nitrate time series data
+lag_plot_nitrate <- gglagplot(nitrate_ts, do.lines = FALSE) +
+  xlab("Lags") +
+  ylab("Log-transformed Nitrate Levels") +
+  ggtitle("Lag Plot for Monthly Nitrate Levels for PWS ID: CA1910067") +
+  theme_bw()
+
+# Convert to a plotly object for interactivity
+ggplotly(lag_plot_nitrate)
+```
+
+
+
+We can observe clusters of similarly colored points at lag 1 do indicate some level of autocorrelation in the nitrate levels. This means that the nitrate level from the previous month has some degree of influence on the current month's level. For time series modeling, such as ARIMA (Autoregressive Integrated Moving Average), this suggests that an autoregressive term would indeed be significant, meaning that the model would use previous data points to predict future ones.
+
+The fact that this autocorrelation weakens at higher lags, implies that older data points have less predictive power. This would be important when determining the order of the AR term in an ARIMA model; a smaller order may be sufficient, as incorporating too many past values might not improve the model. The presence of seasonality, suggested by the clustering of the same months' colors, might also imply that a seasonal component should be considered in the modeling process, which could lead to the use of a Seasonal ARIMA (SARIMA) model.
+
+
+#### Decomposition Plot
+
+
+```{r, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: 'Average Nitrate Levels'
+#| warning: false
+#|  
+
+# Decomposition using a multiplicative model
+multiplicative_decomp <- decompose(log_nitrate_ts, type = 'multiplicative')
+plot(multiplicative_decomp)
+
+
+```
+
+
+Seasonal: The seasonal component reveals a clear, consistent pattern that repeats annually. This suggests that there are predictable fluctuations in nitrate levels that correspond to the time of year, which could be associated with agricultural cycles, weather patterns, or other seasonal factors.
+
+There seems to be some volatility, suggesting that there might be other factors or perhaps outliers influencing nitrate levels that are not captured by the seasonal or trend components.
+
+
 
