@@ -2,26 +2,50 @@
 title: "Data Sources"
 ---
 
-**Data Sources**
+# **Data Sources**
 
-In our journey to uncover trends in water quality, we're leveraging critical datasets from the Environmental Protection Agency's (EPA) Six-Year Reviews. This comprehensive dataset examines the safety and quality of drinking water across three key periods—SYR2, SYR3, and SYR4—showcasing the EPA's dedication to maintaining high drinking water standards through periodic reassessment based on the latest scientific research and technological advancements. A team of experts has rigorously quality-checked this data, ensuring its accuracy and reliability for in-depth analysis.
+To explore the trends and level of Nitrate in California's drinking water from 1998 to 2011, will use datasets that provide a granular view of contaminants in drinking water from the Environmental Protection Agency's (EPA) Six-Year Reviews (SYR). These reviews are mandated by the Safe Drinking Water Act (SDWA) and require the EPA to reassess each national primary drinking water regulation at least once every six years.
 
-**Primary Data Sources:**
 
- - **EIDC Dataset:** This broad dataset provides an overarching view of water quality data, serving as our analytical starting point. It encompasses a wide array of contaminants and offers insights into national water quality trends.
+## **Six-Year Review Background:**
 
-https://redivis.com/EIDC/admin/datasets/cxcg-ahxafrqhj
+The Six-Year Reviews are integral for maintaining the safety and quality of drinking water; by analyzing the compliance monitoring data from public water supplies, EPA assesses the occurrence levels, population exposure, and geographic distribution of regulated drinking water contaminants. This evaluation helps determine whether there is a meaningful opportunity to enhance public health protection by revising the existing standards.
 
-- **Microbial and Disinfection Byproduct Data (2012-2019):** Critical for understanding the outcomes of the Fourth Six-Year Review, this dataset provides insights into contaminants under the microbial and disinfection byproduct rules. 
 
-https://www.epa.gov/dwsixyearreview/microbial-and-disinfection-byproduct-data-files-2012-2019-epas-fourth-six-year
+## **Data Sources:**
 
-- **Six-Year Review 3 Compliance Monitoring Data (2006-2011):** This dataset includes compliance monitoring data crucial for the third review, allowing for a detailed examination of water quality standards. 
 
-https://www.epa.gov/dwsixyearreview/six-year-review-3-compliance-monitoring-data-2006-2011
+- **Six-Year Review 2 Contaminant Occurrence Data (1998-2005):** This dataset from the second review ([Six-Year Review 2](https://www.epa.gov/dwsixyearreview/six-year-review-2-contaminant-occurrence-data-1998-2005)) was reviewed in 2010, which included an assessment of 71 national primary drinking water regulations, is important for our historical analysis.  
 
-- **Six-Year Review 2 Contaminant Occurrence Data (1998-2005):** Offering a historical perspective, this dataset from SYR2 provides a foundation for analyzing trends over time.
 
-https://www.epa.gov/dwsixyearreview/six-year-review-2-contaminant-occurrence-data-1998-2005
+- **Six-Year Review 3 Compliance Monitoring Data (2006-2011):** This dataset from the second review ([Six-Year Review 3](https://www.epa.gov/dwsixyearreview/six-year-review-3-compliance-monitoring-data-2006-2011)) provides us the second panel of the dataset from 2006-2011. 
 
-Each dataset not only informs our understanding of historical and current water quality but also plays a crucial role in identifying areas for regulatory improvement and technological intervention. By integrating my academic knowledge with professional experience in policy implementation and sustainable development, this project aims to distill complex information into actionable insights, fostering public good through enhanced water quality management and policy development.
+
+
+
+## **Colorectal Cancer Incidence Data:**
+
+In addition to the water contaminant data, we will be using colorectal cancer incidence data to explore potential correlations between nitrate levels in drinking water and health outcomes in California.
+
+- **California Cancer Registry (CCR) Data (1988-2020):** CCR provides comprehensive data on colorectal cancer incidence rates in California. This study will focus on data from 1988 to 2020, analyzing trends in colon and rectum cancer rates by sex, within the state. The long-term data will allow us to observe patterns and potential latency periods between nitrate exposure and cancer incidence.
+
+
+
+## **Data Analysis Approach:**
+
+**EPA:** For the purpose of this study, we would extract and analyze data for California and only for the level of Nitrates in drinking water; the focus is on California, as it is one of the biggest states in terms of sample collection frequency. The combination of both the SYR 2 and SY3 data will help provide a comprehensive narrative by helping us examine any trend or seasonality in the dataset and further explore any potential correlations with health outcomes or regulatory changes. 
+
+
+**CCR:** Analysis will include a temporal correlation of nitrate levels from the EPA datasets with colorectal cancer incidence rates over the same periods. 
+
+
+The integration of colorectal cancer incidence data would enrich the study by enabling a multidimensional analysis of environmental determinants of health.
+
+
+<a href="https://www.epa.gov/dwsixyearreview">
+  <img src="epa_logo.png" style="display: inline; margin-right: 10px;"/>
+</a>
+<a href="https://www.ccrcal.org/learn-about-ccr/">
+  <img src="ccr-logo.png" style="display: inline;"/>
+</a>
+

@@ -26,187 +26,61 @@ library(imputeTS)
 library(gridExtra)
 library(reticulate)
 library(readxl)
-use_python("/Users/madhvimalhotra/anaconda3/envs/myenv/bin/python3", require = T)
-knitr::knit_engines$set(python = reticulate::eng_python)
-py_install("tensorflow")
 ```
 
 # Time Series Data Visualization
 
-In time series data visualization, the importance lies in presenting temporal patterns and trends in a clear and comprehensible manner. Effective visualization allows analysts and decision-makers to extract meaningful insights from the data, aiding in better understanding the dynamics of a system over time. The choice of visualization techniques is crucial, as it directly influences the interpretation of patterns within the time series. 
-
-The ability to discern seasonality, identify anomalies, and recognize patterns is vital for making informed predictions and strategic decisions. Furthermore, interactive features in visualizations enable users to delve deeper into the data, offering a dynamic and exploratory experience. 
-
-Ultimately, the clarity and accuracy of time series data visualization contribute significantly to enhancing decision-making processes across various domains, such as finance, healthcare, environmental monitoring and many other areas.
-
-
-::: panel-tabset
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+# Read the data from the CSV file
+new_yearly <- read_csv("new_yearly.csv",show_col_types = FALSE)
+```
 
 
-## Stock Price Trends: NFLX, MSFT, and INTC
 
-
-This section provides an interactive line chart showing the stock price trends of Netflix, Microsoft, and Intel from 2012 to 2024. Users can hover over the chart to examine specific data points.
-
-
-```{r }
-#| warning: false
+```{r, warning=FALSE, message=FALSE}
 #| code-fold: true
+#| code-summary: 'Average Nitrate Levels'
+#| warning: false
+#| output: true
 
-
-options("getSymbols.warning4.0"=FALSE)
-options("getSymbols.yahoo.warning"=FALSE)
-
-tickers = c("NFLX", "MSFT", "INTC") 
-
-for (i in tickers){
-  getSymbols(i,
-             from = "2012-10-01",
-             to = "2024-01-01")}
-
-stock <- data.frame(NFLX$NFLX.Adjusted, MSFT$MSFT.Adjusted, INTC$INTC.Adjusted)
-stock <- data.frame(stock, rownames(stock))
-colnames(stock) <- append(tickers, 'Dates')
-stock$date <- as.Date(stock$Dates, "%Y-%m-%d")
-
-g4 <- 
-  ggplot(stock, aes(x=date)) +
-  geom_line(aes(y=NFLX, colour="NFLX")) +
-  geom_line(aes(y=MSFT, colour="MSFT")) +
-  geom_line(aes(y=INTC, colour="INTC")) +
+# Create the ggplot
+p <- ggplot(new_yearly, aes(x = year, y = mean)) +
+  geom_point(color = 'black', size = 1) +  # Add the data points
+  geom_line(color = 'dodgerblue2', linewidth = 1) +   # Add the line with updated syntax
+  geom_smooth(method = 'lm', color = 'red', linetype = "dashed") + # Add a smooth line
+  scale_x_continuous(breaks = new_yearly$year) +  # Ensure all years are shown
+  theme_minimal() +  # Use a minimal theme
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(hjust = 0.5)  # Center align the title
+  ) +
   labs(
-    title = "Stock Prices for Selected Companies",
-    subtitle = "From 2012-2024",
-    x = "Date",
-    y = "Adjusted Closing Prices"
-    ) +
-  theme_minimal() +
-  guides(colour=guide_legend(title="Companies"))
+    title = 'Average Nitrate Levels in the Drinking Water in California',
+    x = 'Year',
+    y = 'Average Nitrate [mg/L]'
+  )
 
+# Convert ggplot to a plotly object for interactivity
+p_plotly <- ggplotly(p)
 
-ggplotly(g4) %>%
-  layout(hovermode = "x")
+p_plotly
 ```
 
 
-The visualization presents the adjusted closing stock prices for three companies — Netflix (NFLX), Microsoft (MSFT), and Intel (INTC) from 2012 to 2024. Over the last decade, Netflix shows a significant upward trend, reflecting substantial growth, particularly noticeable after 2016, with some volatility (esp post 2021) but a general upward momentum indicating investor confidence and potentially successful company performance. In contrast, Microsoft exhibits a steadier and consistent growth trajectory, suggesting ongoing positive developments and stable investor interest. 
+The yearly graph above shows the average nitrate levels in California's drinking water from 1998 to 2011. The points represent annual average nitrate concentrations, the red dashed line, representing a linear regression model, has been added to indicate the overall trend within the observed period. 
 
-Intel, however, displays relatively little change in stock price over the years, suggesting stable but stagnant growth in comparison to the other tech giants. 
-
-
-
-## Bitcoin Price Movement Analysis
-
-An analysis of Bitcoin's price from 2020 to 2024 is presented here. 
-
-```{r}
-#| code-fold: true
-#| warning: false
-
-
-#bitc_ALL <- getSymbols("BTC",auto.assign = FALSE, from = "2020-10-01",src="yahoo")
-bitc <- getSymbols("BTC",auto.assign = FALSE, from = "2019-01-01",src="yahoo") 
-#head(bitc)
-#start(bitc)
-#end(bitc)
-
-bitc=data.frame(bitc)
-bitc <- data.frame(bitc,rownames(bitc))
-#head(bitc)
-
-colnames(bitc)[7] = "date"
-#head(bitc)
-
-bitc$date<-as.Date(bitc$date,"%Y-%m-%d")
-#str(bitc)
-
-
-## plotly
-bit_coin <- plot_ly(bitc, x = ~date, y = ~BTC.Adjusted, type = 'scatter', mode = 'lines')
-
-bit_coin <- bit_coin %>% layout(title = "Bitcoin Price Trend Analysis (2020-2024)")
-bit_coin
-```
-
-
-The graph above shows Bitcoin's price changes over four years. It starts with a steady price, then a big drop in the middle of 2022, which could mean people were selling off a lot of Bitcoin at that time. After the drop, the price goes up and down a lot but generally rises, suggesting that people became more interested in buying Bitcoin again. This is common in the Crypto-currency market, where prices can change a lot based on what people feel about the future of cryptocurrencies.
+This helps us identify potential patterns, trends, or anomalies in nitrate levels over the years. Notably, it's crucial to observe how these levels fluctuate and consider external factors that might influence these changes, such as environmental regulations or significant events affecting water quality.
 
 
 
+# Tableau Dashboard
 
-## Ethereum Market Fluctuations (Candlestick)
+#### Interactive County-level Nitrate Level Map
 
-This section features a candlestick chart illustrating Ethereum's market price fluctuations between 2020 and 2024. 
-
-
-```{r}
-#| code-fold: true
-#| warning: false
+The Tableau dashboard below is an interactive exploration of nitrate levels across various counties in California. This map helps in providing insights into regional disparities or areas of particular concern. There is time slider feature where you can see how nitrate levels in each county have evolved from 1998 to 2011.
 
 
-# Get Ethereum data using quantmod
-eth_data <- getSymbols("ETH-USD", src = "yahoo", from = "2020-01-01", to = Sys.Date(), auto.assign = FALSE)
-
-# Convert the data to a data frame for plotly
-eth_df <- data.frame(Date = index(eth_data),
-                     Open = as.numeric(eth_data[,1]),
-                     High = as.numeric(eth_data[,2]),
-                     Low = as.numeric(eth_data[,3]),
-                     Close = as.numeric(eth_data[,4]))
-
-# Use plotly to create a candlestick chart
-fig <- plot_ly(eth_df, x = ~Date, type = "candlestick",
-        open = ~Open, close = ~Close,
-        high = ~High, low = ~Low) %>%
-  layout(title = "Ethereum Candlestick Chart")
-
-# Print the figure to display the plot
-fig
-
-```
+LINK
 
 
-The "Ethereum Candlestick Chart" above shows how the value of Ethereum changed from 2020 to 2024. It started off quite low, then shot up quickly in 2021. After that, it fell sharply, which might mean that people were less interested or there were some big changes in the crypto market. The price went up and down for a while, this chart is useful because it gives a clear picture of the highs and lows of Ethereum's price over time.
-
-
-
-
-## Analyzing Unemployment Rate in USA over time (1948 - 2023)
-
-
-This section provides an interactive line chart showing the unemployment rate in the USA from the 1950s to the present.
-
-
-
-```{r}
-#| code-fold: true
-#| warning: false
-
-# Set the FRED API key, which you can obtain for free by signing up on the FRED website
-setSymbolLookup(UNRATE = list(src="FRED"))
-
-
-# Get Unemployment Rate data from FRED
-unrate_data <- getSymbols("UNRATE", src = "FRED", auto.assign = FALSE)
-
-# Convert the data to a data frame for plotly
-unrate_df <- data.frame(Date = index(unrate_data),
-                        UnemploymentRate = as.numeric(unrate_data[,1]))
-
-# Use plotly to create an interactive line chart
-unrate_plot <- plot_ly(unrate_df, x = ~Date, y = ~UnemploymentRate, type = 'scatter', mode = 'lines', name = 'Unemployment Rate') %>%
-  layout(title = "US Unemployment Rate Over Time",
-         xaxis = list(title = "Date"),
-         yaxis = list(title = "Unemployment Rate (%)"))
-
-# Print the figure to display the plot
-unrate_plot
-```
-
-
-
-The chart above shows the unemployment rate in the US from the 1950s. It goes up and down, showing times when jobs were hard to find or more plentiful. There's a really big jump in unemployment in 2020, which was probably because of the pandemic crisis when a lot of people lost their jobs all at once. But then it gets better pretty fast.
-
-
-
-:::
